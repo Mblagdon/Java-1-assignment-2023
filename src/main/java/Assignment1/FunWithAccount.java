@@ -1,4 +1,11 @@
-package Assignment1Account;
+package Assignment1;
+/**
+ * A tester for Account Class
+ *
+ * @author MBLagdon
+ */
+
+import Assignment1.Account;
 
 import java.util.Scanner;
 

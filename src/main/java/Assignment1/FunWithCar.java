@@ -1,7 +1,14 @@
-package Assignment1Car;
+package Assignment1;
+
+/**
+ * Simple class to make Car object
+ *
+ * @author  MBlagdon
+ */
 
 import java.util.Scanner;
 public class FunWithCar {
+
 
     public static void main(String[] args){
         System.out.println("Fun With Cars");
