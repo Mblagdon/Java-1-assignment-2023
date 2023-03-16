@@ -30,7 +30,35 @@ public class PrimeNumberCalculator {
      */
     public String getUniquePrimeFactorization(int n){
         //TODO write method
+        String str="";
+        int i = 1;
+
+        while(i <= n){
+            if(n % i == 0 ){
+                int b=1, c=0;
+                while(b <= i){
+                    if(i % b == 0)
+                        b++;
+                        c++;
+                }
+                if (c == 2){
+                    str+=i+ " ";
+                }
+            }
+            i++;
+        }
+
         return String.valueOf(n);
+    }
+
+    /**
+     * Get smallest denominator of n. If n is prime this will return itself
+     * @param n n
+     * @return smallest denominator
+     */
+    public static int getSmallestDenominator(int n){
+        //TODO write this method
+        return n;
     }
 
 

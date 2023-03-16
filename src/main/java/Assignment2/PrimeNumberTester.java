@@ -1,5 +1,9 @@
 package Assignment2;
-
+/**
+ * Assignment 2 CP2280 Checking to see if numbers are primes and the ints of there primes.
+ *
+ * @author MBLagdon
+ */
 public class PrimeNumberTester {
 
     public static void main(String[] args) {
