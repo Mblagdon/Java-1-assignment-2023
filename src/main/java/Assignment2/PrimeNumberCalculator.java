@@ -30,24 +30,18 @@ public class PrimeNumberCalculator {
      */
     public String getUniquePrimeFactorization(int n){
         //TODO write method
-        String str="";
-        int i = 1;
-
-        while(i <= n){
-            if(n % i == 0 ){
-                int b=1, c=0;
-                while(b <= i){
-                    if(i % b == 0)
-                        b++;
-                        c++;
-                }
-                if (c == 2){
-                    str+=i+ " ";
-                }
+        int i = 2;
+        String factors = "";
+        while (i < n){
+            while (n % i == 0){
+                n /= i;
+                factors = factors + " " + i;
             }
             i++;
         }
-
+        if (n > 2){
+            factors = factors + " " + n;
+        }
         return String.valueOf(n);
     }
 
@@ -58,6 +52,12 @@ public class PrimeNumberCalculator {
      */
     public static int getSmallestDenominator(int n){
         //TODO write this method
+        if(n % 2 == 0)
+            return 2;
+        for(int i = 3; i * i <= n; i += 2){
+            if(n % i == 0)
+                return i;
+        }
         return n;
     }
 
