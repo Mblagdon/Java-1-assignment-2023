@@ -11,15 +11,15 @@ public class PrimeNumberCalculator {
      * @param n natural number( > 0)
      * @return true if prime
      */
-    public boolean isPrime(int n){
+    public static boolean isPrime(int n){
         //TODO write method
-        if(n == 2)
-            return true;
-        for(int i =2; i * i <= n; i++){
-            if(n % i == 0)
-                return false;
-        }
-        return true;
+//        if(n == 2)
+//            return true;
+//        for(int i =2; i * i <= n; i++){
+//            if(n % i == 0)
+//                return false;
+//        }
+        return n == getSmallestDenominator(n);
     }
 
     /**
@@ -28,21 +28,24 @@ public class PrimeNumberCalculator {
      * @param n natural number ( > 0)
      * @return string of form "p1*p2*....*pN"
      */
-    public String getUniquePrimeFactorization(int n){
+    public static String getUniquePrimeFactorization(int n){
         //TODO write method
         int i = 2;
         String factors = "";
-        while (i < n){
+        while (i <= n){
             while (n % i == 0){
                 n /= i;
-                factors = factors + " " + i;
+                factors = factors + "*" + i;
             }
             i++;
         }
         if (n > 2){
-            factors = factors + " " + n;
+            factors += "2";
         }
-        return String.valueOf(n);
+        if (n > 1){
+            factors = factors + "*" + n;
+        }
+        return factors;
     }
 
     /**
@@ -60,7 +63,8 @@ public class PrimeNumberCalculator {
         }
         return n;
     }
-
-
+    /**
+     * Added this in afterwards, but had the PrimeNumberCalculated done over break
+     */
 
 }

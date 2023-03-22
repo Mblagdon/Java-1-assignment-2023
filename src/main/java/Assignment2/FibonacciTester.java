@@ -7,6 +7,10 @@ import java.util.Scanner;
  *
  * @author MBlagdon
  */
+
+/**
+ * A FibonacciTester for the FibonacciCalculator
+ */
 public class FibonacciTester {
 
     public static void main(String[] args) {
@@ -14,7 +18,6 @@ public class FibonacciTester {
 
         Scanner input = new Scanner(System.in);
 
-        FibonacciCalculator fibonacciCalculator = new FibonacciCalculator();
 
         char c;
 
@@ -26,20 +29,20 @@ public class FibonacciTester {
                 System.out.print("Enter a number: ");
                 int n = input.nextInt();
                 for (int i = 0; i < n; i++) {
-                    if (fibonacciCalculator.isFibonacciNumber(i)){
+                    if (FibonacciCalculator.isFibonacciNumber(i)){
                         System.out.println(i + " ");
                     }
                     }
             }else if(c == 'B'){
                 System.out.print("Enter a number: ");
                 int n = input.nextInt();
-                for (int i = 1; i <= n; i++) {
-                    System.out.printf("\nPos %d, Value: %d", i, fibonacciCalculator.getFibonacciNumber(i));
+                for (int i = 0; i <= n; i++) {
+                    System.out.printf("\nPos %d, Value: %d\n", i, FibonacciCalculator.getFibonacciNumber(i));
                 }
             }else if(c == 'C') {
                 System.out.println("Enter a number: ");
                 int n = input.nextInt();
-                if (fibonacciCalculator.isFibonacciNumber(n)) {
+                if (FibonacciCalculator.isFibonacciNumber(n)) {
                     System.out.println(n + " is a Fibonacci Number!");
                 } else {
                     System.out.println(n + " is not a Fibonacci Number!");
@@ -53,12 +56,18 @@ public class FibonacciTester {
         System.out.println("\nGOODBYE!");
         }
 
+    /**
+     * A printmenu to display options
+     */
     public static void printMenu(){
-        System.out.println("\nSelect from the following options:");
-        System.out.println("(A) Display all Fibonacci Numbers upto inputted value");
-        System.out.println("(B) Print n Fibonacci Numbers");
-        System.out.println("(C) Check to determine if inputted value is a Fibonacci Number");
-        System.out.println("(Q) Quit");
+        System.out.println("+----------------------------------------------------------------------+");
+        System.out.println("|               Select from the following options:                     |");
+        System.out.println("+----------------------------------------------------------------------+");
+        System.out.println("|(A) Display all Fibonacci Numbers upto inputted value                 |");
+        System.out.println("|(B) Print n Fibonacci Numbers                                         |");
+        System.out.println("|(C) Check to determine if inputted value is a Fibonacci Number        |");
+        System.out.println("|(Q) Quit                                                              |");
+        System.out.println("+----------------------------------------------------------------------+");
 
     }
 

@@ -12,9 +12,17 @@ package Assignment2;
  * @author MBlagdon
  */
 
+/**
+ * A public class called FibonacciCalculator
+ */
 public class FibonacciCalculator {
-
+    /**
+     * final int F_0
+     */
     public static final int F_0 = 0;
+    /**
+     * final int F_1
+     */
     public static final int F_1 = 1;
 
     /**
@@ -23,8 +31,11 @@ public class FibonacciCalculator {
      * @param n Number > 0
      * @return true if n is a fibonacci number
      */
-    public boolean isFibonacciNumber(int n) {
+    public static boolean isFibonacciNumber(int n) {
         //TODO write method
+        if (n==0 || n==1) {
+            return true;
+        }
         int F_0 = 0; //start with 0
         int F_1 = 1; //start with 1
         int Fn = 0; // a temporary variable
@@ -45,18 +56,24 @@ public class FibonacciCalculator {
      * @return value in fibonacci sequence
      */
 
-    public int getFibonacciNumber(int sequencePosition) {
+    public static int getFibonacciNumber(int sequencePosition) {
         //TODO write method
+        if (sequencePosition == 0){
+            return 0;
+        }
+        if (sequencePosition == 1){
+            return 1;
+        }
         int F_0 = 0; //start with 0
         int F_1 = 1; //start with 1
         int Fn = 0; // a temporary variable
-        for (int i = 0; i < sequencePosition; i++) {
+        for (int i = 2; i <= sequencePosition; i++) {
             Fn = F_0 + F_1;
             F_0 = F_1;
             F_1 = Fn;
         }
 
-        return 0;
+        return Fn;
     }
 
 }
