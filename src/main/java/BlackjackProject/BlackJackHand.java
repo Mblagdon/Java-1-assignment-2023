@@ -29,7 +29,7 @@ public class BlackJackHand {
             total += value; //add the value of the cards to the hand value
         }
 
-        //TODO you have to handle Aces!
+        //Aces not going as 1 or 11?
         while (numberAces > 0) {
             if (total + 11 <= 21) {
                 total += 11; // adding 10 to the value 1 of ace if it will not cause a bust
