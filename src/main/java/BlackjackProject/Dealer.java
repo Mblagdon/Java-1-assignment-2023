@@ -1,34 +1,46 @@
 package BlackjackProject;
 
+import java.util.ArrayList;
+
+/**
+ * The dealer class for the BlackJack game
+ */
 public class Dealer {
     private Hand hand;
 
+    /**
+     * Makes dealer with an empty hand
+     */
     public Dealer() {
         this.hand = new Hand();
     }
 
+    /**
+     * Gets the dealers hand
+     * @return dealers hand
+     */
     public Hand getHand() {
         return hand;
     }
 
-    public void dealCards(DeckOfCards deck, Hand hand) {
-        hand.addCard(deck.drawCard());
-    }
-
-    public void dealStartingCards(DeckOfCards deck, Player player, int bet) {
-        player.playerBet(bet);
-        dealCards(deck, player.getHand());
-        dealCards(deck, this.hand);
-        dealCards(deck, player.getHand());
-        dealCards(deck, this.hand);
-    }
-
-    public void turn(DeckOfCards deck) {
-        int dealerValue = BlackJackHand.getHighestValue(this.hand.getCards());
-        while (dealerValue < 17) {
-            dealCards(deck, this.hand);
-            dealerValue = BlackJackHand.getHighestValue(this.hand.getCards());
+    /**
+     * String representation of dealers hand
+     * @return dealers cards in hand
+     */
+    public String printHand(){
+        ArrayList<PlayingCard> cards = hand.getCards();
+        StringBuilder sb = new StringBuilder();
+        for (PlayingCard card: cards) {
+            sb.append(card.toString()).append(" ");
         }
+        return sb.toString().trim();
+    }
+
+    /**
+     * Clears dealers hand
+     */
+    public void clearHand() {
+        this.hand = new Hand();
     }
 
 }

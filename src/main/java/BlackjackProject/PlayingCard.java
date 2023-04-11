@@ -48,7 +48,7 @@ public class PlayingCard {
 
     /**
      * A method to print out what a card looks like
-     * @return
+     * @return the string for cards
      */
     public String toString(){
         String string = "";
@@ -79,8 +79,33 @@ public class PlayingCard {
     }
 
     //Note: Enumerations can be stored on their own or within the class they will be used
-    public enum Suit {HEARTS, DIAMONDS, SPADES, CLUBS}
-    //TODO Add symbols to the enumeration
+
+    /**
+     * Enumeration of the suits for a deck of cards
+     */
+    public enum Suit {
+        HEARTS('\u2665'),
+        DIAMONDS('\u2666'),
+        SPADES('\u2660'),
+        CLUBS('\u2663');
+        /**
+         * Constructor to get a new suit with a symbol
+         * @param symbol the symbol of a suit
+         */
+        private final char symbol;
+
+        Suit(char symbol) {
+            this.symbol = symbol;
+        }
+
+        /**
+         * Gets the symbol of the suit
+         * @return suit symbol
+         */
+        public char getSymbol() {
+            return symbol;
+        }
+    }
 
 
     /*

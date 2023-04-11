@@ -14,11 +14,11 @@ public class BlackJackHand {
      * @return value as an int (>21) is bust
      */
     public static int getHighestValue(ArrayList<PlayingCard> hand){
-        int total = 0;
-        int numberAces = 0;
+        int total = 0; //initial hand total value is 0
+        int numberAces = 0; //initial number of aces is 0
 
+        //go through each card in hand
         for (PlayingCard playingCard: hand) {
-            //TODO check for Jack, Queen and King and add as 10
             int value = playingCard.getFaceValue();
             if (value > 10) {
                 value = 10;
@@ -26,15 +26,19 @@ public class BlackJackHand {
             if (value == 1) {
                 numberAces++;
             }
-            total += value;
-        }
-        //TODO you have to handle Aces!
-        for (int i = 0; i < numberAces; i++){
-            if (total + 10 <= 21){
-                total += 10;
-            }
+            total += value; //add the value of the cards to the hand value
         }
 
-        return total;
+        //TODO you have to handle Aces!
+        while (numberAces > 0) {
+            if (total + 11 <= 21) {
+                total += 11; // adding 10 to the value 1 of ace if it will not cause a bust
+            } else {
+                total += 1; //counts ace as 1 if it busts with 11
+            }
+            numberAces--; //decrement number of aces left to process
+        }
+
+        return total; //total hand value
     }
 }
