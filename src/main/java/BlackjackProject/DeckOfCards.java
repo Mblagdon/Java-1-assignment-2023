@@ -14,6 +14,9 @@ import java.util.Collections;
  */
 public class DeckOfCards {
 
+    /**
+     * Array list for the playing cards
+     */
     private ArrayList<PlayingCard> playingCardArrayList;
 
     /**
@@ -25,9 +28,10 @@ public class DeckOfCards {
 
     /**
      * Draw a card from the deck, remove card from deck
+     *
      * @return drawn card
      */
-    public PlayingCard drawCard(){
+    public PlayingCard drawCard() {
         return this.playingCardArrayList.remove(0);
     }
 
@@ -35,7 +39,7 @@ public class DeckOfCards {
     /**
      * Shuffle deck
      */
-    public void shuffle(){
+    public void shuffle() {
         Collections.shuffle(this.playingCardArrayList);
 
     }
@@ -43,37 +47,24 @@ public class DeckOfCards {
     /**
      * This method sets up the deck correctly
      */
-    private void initializeDeck(){
+    private void initializeDeck() {
         playingCardArrayList = new ArrayList<>();
         //Add the hearts
-        for (int i = 2; i <= PlayingCard.ACE ; i++) {
+        for (int i = 2; i <= PlayingCard.ACE; i++) {
             playingCardArrayList.add(new PlayingCard(i, PlayingCard.Suit.HEARTS));
         }
         //Add the clubs
-        for (int i = 2; i <= PlayingCard.ACE ; i++) {
+        for (int i = 2; i <= PlayingCard.ACE; i++) {
             playingCardArrayList.add(new PlayingCard(i, PlayingCard.Suit.CLUBS));
         }
         //Add the diamonds
-        for (int i = 2; i <= PlayingCard.ACE ; i++) {
+        for (int i = 2; i <= PlayingCard.ACE; i++) {
             playingCardArrayList.add(new PlayingCard(i, PlayingCard.Suit.DIAMONDS));
         }
         //Add the spades
-        for (int i = 2; i <= PlayingCard.ACE ; i++) {
+        for (int i = 2; i <= PlayingCard.ACE; i++) {
             playingCardArrayList.add(new PlayingCard(i, PlayingCard.Suit.SPADES));
         }
     }
-
-
-    /**
-     * For TESTING PURPOSES
-     * Print the deck to printstread
-     * @param printStream
-     */
-    public void printDeck(PrintStream printStream){
-        printStream.println("Printing deck of cards: ");
-        for (PlayingCard playingCard: this.playingCardArrayList){
-            printStream.print(playingCard.toString() + ", ");
-        }
-    }
-
 }
+

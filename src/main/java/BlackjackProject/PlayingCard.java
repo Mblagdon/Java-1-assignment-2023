@@ -8,9 +8,21 @@ package BlackjackProject;
 public class PlayingCard {
 
     //Constants to sort the value of the playing card
+    /**
+     * ACE = 14
+     */
     public static final int ACE = 14;
+    /**
+     * KING = 13
+     */
     public static final int KING = 13;
+    /**
+     * QUEEN = 12
+     */
     public static final int QUEEN = 12;
+    /**
+     * JACK = 11
+     */
     public static final int JACK = 11;
 
 
@@ -74,7 +86,7 @@ public class PlayingCard {
         } else if (this.suit == Suit.SPADES){
             string += String.valueOf('\u2660');
         }
-        //TODO write this
+
         return string;
     }
 

@@ -31,10 +31,14 @@ public class BlackJackGame {
         this.bet = bet;
 
         //Deal player two cards and dealer two cards
+        player.clearHand();
+        dealer.clearHand();
         player.getHand().addCard(deck.drawCard());
         dealer.getHand().addCard(deck.drawCard());
         player.getHand().addCard(deck.drawCard());
         dealer.getHand().addCard(deck.drawCard());
+        deck.shuffle();
+
 
         System.out.println("Player's hand: " + player.printHand());
 
@@ -60,7 +64,7 @@ public class BlackJackGame {
      * Dealer will draw until hand value is at least 17 and prints dealers hand
      */
     public void playerStand() {
-        while (dealer.getHand().getHandValue() < 17){
+        while (dealer.getHand().getHandValue() < getPlayersHandValue() && dealer.getHand().getHandValue() <=21){
             dealer.getHand().addCard(deck.drawCard());
         }
         System.out.println("Dealer's hand: " + dealer.printHand());
@@ -180,9 +184,9 @@ public class BlackJackGame {
 
         } else if (playerBusts()) {
             player.setMoney(player.getMoney() - bet);
+        } else if (dealerBusts()) {
+            player.setMoney(player.getMoney() + bet);
         }
 
-        player.clearHand();
-        dealer.clearHand();
     }
 }

@@ -1,9 +1,14 @@
 package BlackjackProject;
 
 import java.util.Scanner;
+
+/**
+ * Any application to run the BlackJackGame
+ */
 public class BlackJackGameApplication {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+        DeckOfCards deck = new DeckOfCards();
         BlackJackGame game = new BlackJackGame(100); //To start with $100
         int bet = 0;
 
@@ -51,7 +56,13 @@ public class BlackJackGameApplication {
                         game.dealerHit();
                         System.out.println("Dealers new card: " + game.getDealersHandValue());
                     }
-                    if (game.dealerBusts()) {
+                    if (game.playerBlackJack()) {
+                    System.out.println("You have BlackJack! You win $" + bet*1.5 + "!");
+                    game.payOut();
+                    } else if (game.dealerBlackJack()) {
+                        System.out.println("Dealer has BlackJack. You have lost your bet of $" + bet + "!");
+                        game.payOut();
+                    } else if (game.dealerBusts()) {
                         System.out.println("Dealer has busted! You win $" + bet + "!");
                         game.payOut();
 
@@ -61,17 +72,12 @@ public class BlackJackGameApplication {
                     } else if (game.dealerWins()) {
                         System.out.println("Dealer wins! You have lost your bet of $" + bet + "!");
                         game.payOut();
-                    } else if (game.playerBlackJack()) {
-                        System.out.println("You have BlackJack! You win $" + bet*1.5 + "!");
-                        game.payOut();
-                    } else if (game.dealerBlackJack()) {
-                        System.out.println("Dealer has BlackJack. You have lost your bet of $" + bet + "!");
-                        game.payOut();
                     } else {
                         System.out.println("It's a tie! The $" + bet + " is given back!");
                         game.payOut();
                     }
 
+                    deck.shuffle();
                     break;
                 }
             }
